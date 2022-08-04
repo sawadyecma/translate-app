@@ -1,1 +1,1 @@
-# translate-app
+Google SpreadSheetから値を取り出すアプリ
