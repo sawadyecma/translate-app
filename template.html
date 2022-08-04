@@ -142,7 +142,7 @@ limitations under the License.
           response = await gapi.client.sheets.spreadsheets.values.get({
             spreadsheetId: '17wp3lYkDicBt_EhzsHwbfMgGRY_0VkJiHbqfM-kyirU',
 
-            range: 'Sheet1!A1:B15',
+            range: 'Sheet1!A1:B200',
           });
         } catch (err) {
           document.getElementById('content').innerText = err.message;
