@@ -1,4 +1,6 @@
-<script lang="js">
+<script lang="ts">
+  let pairs: { en: string; ja: string }[] = [];
+
   /* exported gapiLoaded */
   /* exported gisLoaded */
   /* exported handleAuthClick */
@@ -128,11 +130,8 @@
       return;
     }
     // Flatten to string to display
-    const output = range.values.reduce(
-      (str, row) => `${str}${row[0]}, ${row[1]}\n`,
-      "\n"
-    );
-    document.getElementById("content").innerText = output;
+    const output = range.values.map((row) => ({ en: row[0], ja: row[1] }));
+    pairs = output;
   }
 </script>
 
@@ -142,6 +141,15 @@
   <!--Add buttons to initiate auth sequence and sign out-->
   <button id="authorize_button" on:click={handleAuthClick}>Authorize</button>
   <button id="signout_button" on:click={handleSignoutClick}>Sign Out</button>
+
+  <ul>
+    {#each pairs as pair}
+      <li>
+        <p>{pair.en}</p>
+        <p>{pair.ja}</p>
+      </li>
+    {/each}
+  </ul>
 
   <pre id="content" style="white-space: pre-wrap;" />
 
