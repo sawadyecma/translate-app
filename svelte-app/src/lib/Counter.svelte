@@ -1,4 +1,6 @@
 <script lang="ts">
+  import Pairs from "./Pairs.svelte";
+
   let pairs: { en: string; ja: string }[] = [];
 
   /* exported gapiLoaded */
@@ -142,14 +144,7 @@
   <button id="authorize_button" on:click={handleAuthClick}>Authorize</button>
   <button id="signout_button" on:click={handleSignoutClick}>Sign Out</button>
 
-  <ul>
-    {#each pairs as pair}
-      <li>
-        <p>{pair.en}</p>
-        <p>{pair.ja}</p>
-      </li>
-    {/each}
-  </ul>
+  <Pairs {pairs} />
 
   <pre id="content" style="white-space: pre-wrap;" />
 
